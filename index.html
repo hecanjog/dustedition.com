@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dust Edition</title>
+        <style>
+            html {
+                background-image: url('http://www.donewaiting.com/wp-content/uploads/2012/06/0612-GQ-waka-flocka-flame.jpg');
+
+            }
+
+            #dust-logo {
+                position: fixed;
+                top: 10px;
+                left: 200px;
+            }
+
+            #fake-scroll {
+                height: 1700px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <canvas id="dust-logo" width="500px" height="80px"></canvas>
+
+        <div id="fake-scroll"></div>
+
+        <script>
+            var dustCanvas = document.getElementById('dust-logo');
+            var dust = dustCanvas.getContext('2d');
+
+            var count = 1000;
+            var i = 0;
+            var x, y, radius;
+
+            dust.fillStyle = '#fff';
+            dust.font = 'bold 80px sans-serif';
+            dust.fillText('dust edition', 0, 70);
+           
+            dust.globalCompositeOperation = 'destination-out';
+ 
+            while(i < count) {
+                x = parseInt(Math.random() * 500);
+                y = parseInt(Math.random() * 80);
+                radius = parseInt(Math.random() * 6);
+                
+                dust.beginPath();
+                dust.arc(x, y, radius, 0, Math.PI * 2, true);
+                dust.fillStyle = 'rgba(0, 0, 0, ' + Math.random() + ')';
+                //dust.fillStyle = '#fff';
+                dust.fill();
+
+                i++;
+            }
+
+        </script>
+    </body>
+</html>
