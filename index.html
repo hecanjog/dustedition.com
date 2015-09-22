@@ -14,6 +14,11 @@
                 animation: bganimate 20s ease infinite;
             }
 
+            #dust-logo {
+                display: block;
+                margin: 2em auto;
+            }
+
             @-webkit-keyframes bganimate {
                 0% { background-position: 0 0 }
                 50% { background-position: 100% 0 }
@@ -35,27 +40,29 @@
     </head>
 
     <body>
-        <canvas id="dust-logo" width="1000px" height="100px"></canvas>
+        <canvas id="dust-logo" width="500px" height="100px"></canvas>
 
         <script>
             var dustCanvas = document.getElementById('dust-logo');
             var dust = dustCanvas.getContext('2d');
-
-            var w = dustCanvas.offsetWidth;
             var h = dustCanvas.offsetHeight;
-            console.log(w, h);
-
-            var count = 1000;
-            var i = 0;
-            var x, y, radius;
 
             dust.fillStyle = '#fff';
             dust.font = 'bold ' + (h - 4) + 'px sans-serif';
+            var w = dust.measureText('dust editions').width;
+
+            dustCanvas.width = w;
+
+            /* Must redeclare after changing canvas width... */
+            dust.fillStyle = '#fff';
+            dust.font = 'bold ' + (h - 4) + 'px sans-serif';
+
+            var i = 0;
+            var x, y, radius;
+
             dust.fillText('dust editions', 0, h - 2);
            
             dust.globalCompositeOperation = 'destination-out';
- 
-            //while(i < count) {
 
             var drawLoop = setInterval(function() {
                 x = parseInt(Math.random() * w);
