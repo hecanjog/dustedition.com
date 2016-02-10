@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<div class="show">
+
+  <header class="show-header">
+    <h1 class="show-title">{{ page.title }}</h1>
+    <p class="show-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.starts %} | {{ page.starts }}{% endif %}{% if page.price %} | {{ page.price }}{% endif %}</p>
+  </header>
+
+  <article class="post-content">
+    {{ content }}
+  </article>
+
+</div>

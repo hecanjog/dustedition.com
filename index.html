@@ -1,83 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Dust Edition</title>
-        <style>
-            html {
-                height: 100%;
-                background: #88088;
-                background: linear-gradient(30deg, #990099, #110011);
-                background-size: 200% 200%;
+---
+layout: default
+---
 
-                -webkit-animation: bganimate 20s ease infinite;
-                -moz-animation: bganimate 20s ease infinite;
-                animation: bganimate 20s ease infinite;
-            }
+{% assign post = site.posts.first %}
+{% assign content = post.content %}
 
-            #dust-logo {
-                display: block;
-                margin: 2em auto;
-            }
+<h2>{{ post.title }}</h2>
 
-            @-webkit-keyframes bganimate {
-                0% { background-position: 0 0 }
-                50% { background-position: 100% 0 }
-                100% { background-position: 0 0 }
-            }
-
-            @-moz-keyframes bganimate {
-                0% { background-position: 0 0 }
-                50% { background-position: 100% 0 }
-                100% { background-position: 0 0 }
-            }
-
-            @keyframes bganimate { 
-                0% { background-position: 0 0 }
-                50% { background-position: 100% 0 }
-                100% { background-position: 0 0 }
-            }
-        </style>
-    </head>
-
-    <body>
-        <canvas id="dust-logo" width="500px" height="100px"></canvas>
-
-        <script>
-            var dustCanvas = document.getElementById('dust-logo');
-            var dust = dustCanvas.getContext('2d');
-            var h = dustCanvas.offsetHeight;
-
-            dust.fillStyle = '#fff';
-            dust.font = 'bold ' + (h - 4) + 'px sans-serif';
-            var w = dust.measureText('dust editions').width;
-
-            dustCanvas.width = w;
-
-            /* Must redeclare after changing canvas width... */
-            dust.fillStyle = '#fff';
-            dust.font = 'bold ' + (h - 4) + 'px sans-serif';
-
-            var i = 0;
-            var x, y, radius;
-
-            dust.fillText('dust editions', 0, h - 2);
-           
-            dust.globalCompositeOperation = 'destination-out';
-
-            var drawLoop = setInterval(function() {
-                x = parseInt(Math.random() * w);
-                y = parseInt(Math.random() * h);
-                radius = parseInt(Math.random() * 6);
-                
-                dust.beginPath();
-                dust.arc(x, y, radius, 0, Math.PI * 2, true);
-                dust.fillStyle = 'rgba(0, 0, 0, ' + Math.random() + ')';
-                //dust.fillStyle = '#fff';
-                dust.fill();
-
-                //i++;
-            }, 20);
-
-        </script>
-    </body>
-</html>
+{{ content }}

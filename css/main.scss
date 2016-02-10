@@ -1,0 +1,35 @@
+---
+# Main styles 
+---
+@charset "utf-8";
+
+$bg-color: #880088;
+$fg-color: #fff;
+$main-width: 100%;
+$medium-width: 600px;
+$large-width: 1000px;
+
+@import "normalize";
+@import "mixins";
+
+* {
+    box-sizing: border-box;
+    font-family: 'Goudy Bookletter 1911', serif;
+}
+
+main, footer {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 24px;
+    color: #fff;
+}
+
+footer {
+    padding: 1em 0 10em;
+
+    a {
+        color: darken($bg-color, 40%);
+    }
+}
+
+@import "home";

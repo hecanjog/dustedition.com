@@ -1,0 +1,47 @@
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == "medium" {
+        @media all and (min-width: $medium-width) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint == "large" {
+        @media all and (min-width: $large-width) {
+            @content;
+        }
+    }
+
+}
+
+@mixin text-shadow($x, $y, $blur, $color) {
+    -webkit-text-shadow: $x $y $blur $color;
+       -moz-text-shadow: $x $y $blur $color;
+        -ie-text-shadow: $x $y $blur $color;
+            text-shadow: $x $y $blur $color;
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}

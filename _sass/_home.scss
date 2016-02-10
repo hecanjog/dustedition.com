@@ -1,0 +1,40 @@
+body {
+    background-color: darken($bg-color, 10%);
+    //background: linear-gradient(30deg, #990099, #110011);
+    //background-size: 200% 200%;
+
+    //-webkit-animation: bganimate 20s ease infinite;
+    //-moz-animation: bganimate 20s ease infinite;
+    //animation: bganimate 20s ease infinite;
+}
+
+#dust {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+main, footer {
+    position: relative;
+    z-index: 2;
+}
+
+/*
+@-webkit-keyframes bganimate {
+    0% { background-position: 0 0 }
+    50% { background-position: 100% 0 }
+    100% { background-position: 0 0 }
+}
+
+@-moz-keyframes bganimate {
+    0% { background-position: 0 0 }
+    50% { background-position: 100% 0 }
+    100% { background-position: 0 0 }
+}
+
+@keyframes bganimate { 
+    0% { background-position: 0 0 }
+    50% { background-position: 100% 0 }
+    100% { background-position: 0 0 }
+}
+*/
